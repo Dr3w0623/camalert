@@ -8,5 +8,6 @@ def motion_checker():
         cv2.imshow('cum', frame)
         cv2.waitKey(1)
 
+#test
 
 motion_checker()
