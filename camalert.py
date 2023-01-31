@@ -1,7 +1,9 @@
 import cv2 
 import time
 import statistics
+
 stream = cv2.VideoCapture(0) 
+
 def motion_checker():
     while(True):
         is_frame, frame = stream.read()
