@@ -21,9 +21,9 @@ def motion_checker():
                 biggest_contour_area = cv2.contourArea(contour)
                 big_contour = contour
         (x, y, w, h) = cv2.boundingRect(big_contour)
-        mean_x = int(statistics.mean([x, (x+w)]))
-        mean_y = int(statistics.mean([y, (y+h)]))
-        cv2.rectangle(frame, ((mean_x-70), (mean_y-70)), (mean_x+w+70, mean_y+h+70), (0, 255, 0), 2) # change so never goes outside bound of image
+        stream_width = int(stream.get(cv2.CAP_PROP_FRAME_WIDTH))
+        stream_height = int(stream.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        cv2.rectangle(frame, (max(x-20, 0), max(y-20, 0)), (min(x+w+20, stream_width), min(y+h+20, stream_height)), (255, 255, 0), 2)
         show(frame)
         if biggest_contour_area > 500: 
             eventMaker(frame)
