@@ -35,4 +35,5 @@ def show(frame):
     cv2.waitKey(1)
 
 
+
 motion_checker()
